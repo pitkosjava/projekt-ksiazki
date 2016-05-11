@@ -14,7 +14,7 @@
 							<label class="col-sm-4 control-label">#{msg['web.author.forname']}</label>
 							<div class="col-sm-6">
 								<h:inputText id="forename" value="#{bookAdd.book.author.forename}" styleClass="#{component.valid?'field-valid':'field-invalid'} field">
-									<f:validator for="forename" validatorId="pit.kos.book.utils.ValidatorForname"></f:validator>
+									<f:validator for="forename" validatorId="book.view.ValidatorForname"></f:validator>
 								</h:inputText>
 								<h:message id="mforename" for="forename" style="color:red"/>
 							</div>
@@ -22,7 +22,9 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">#{msg['web.author.surname']}</label>
 							<div class="col-sm-6">
-								<h:inputText id="surname" value="#{bookAdd.book.author.surname}" styleClass="#{component.valid?'field-valid':'field-invalid'} field"/>
+								<h:inputText id="surname" value="#{bookAdd.book.author.surname}" styleClass="#{component.valid?'field-valid':'field-invalid'} field">
+									<f:validator for="forename" validatorId="book.view.ValidatorForname"></f:validator>
+								</h:inputText>
 								<h:message id="msurname" for="surname" style="color:red"/>
 							</div>
 						</div>

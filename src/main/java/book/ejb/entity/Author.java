@@ -1,7 +1,7 @@
 /**
  * 
  */
-package pit.kos.book.ejb.entity;
+package book.ejb.entity;
 
 import java.io.Serializable;
 import java.util.List;

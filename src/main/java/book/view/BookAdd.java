@@ -1,20 +1,19 @@
 /**
  * 
  */
-package pit.kos.book.view;
+package book.view;
 
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.slf4j.Logger;
 
-import pit.kos.book.ejb.entity.Book;
-import pit.kos.book.ejb.services.BookServicesLocal;
-import pit.kos.book.ejb.utils.Log;
+import book.ejb.entity.Book;
+import book.ejb.services.BookServices;
+import book.ejb.utils.Log;
 
 @Named
 @javax.faces.view.ViewScoped
@@ -32,8 +31,9 @@ public class BookAdd implements Serializable {
 	@Inject
 	@Log
 	private Logger logger;
-	@EJB
-	private BookServicesLocal bookServices;
+	
+	@Inject
+	private BookServices bookServices;
 	
 	
 	@PostConstruct

@@ -1,5 +1,5 @@
 
-package pit.kos.book.ejb.utils;
+package book.ejb.utils;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;

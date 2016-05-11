@@ -1,4 +1,4 @@
-package pit.kos.book.ejb.utils;
+package book.ejb.utils;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;

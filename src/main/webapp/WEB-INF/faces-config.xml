@@ -17,7 +17,7 @@
    <default-locale>en</default-locale>
   </locale-config>
   <resource-bundle>
-   <base-name>pit.kos.book.locale.messages</base-name>
+   <base-name>msgg.locale.messages</base-name>
    <var>msg</var>
   </resource-bundle>
  </application>
