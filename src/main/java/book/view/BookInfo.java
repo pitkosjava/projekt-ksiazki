@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -22,6 +23,7 @@ public class BookInfo implements Serializable {
 	private static final long serialVersionUID = 1547031612818939534L;
 
 	private List<Book> listBook;
+	
 	@Inject
 	@Log
 	private Logger logger;
@@ -38,5 +40,20 @@ public class BookInfo implements Serializable {
 			logger.error("", e);
 		}
 		return null;
+	}
+	
+	public String deleteBook(Long id) {
+		for (Book book: listBook) {
+			if (book.getId_book().equals(id)) {
+				bookServices.remove(book);
+			}
+		}
+		return "";
+	}
+	
+	public String editBook(Long id) {
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("edit","true");
+	    FacesContext.getCurrentInstance().getExternalContext().getFlash().put("idEditBook", id.toString());
+	    return "/views/addbook.jsf?faces-redirect=true";
 	}
 }

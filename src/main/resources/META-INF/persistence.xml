@@ -10,7 +10,8 @@
 		<class>book.ejb.entity.Author</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<!-- to create dbms change validate to create  -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			 <property name="javax.persistence.query.timeout" value="5000"/>
         	<property name="hibernate.connection.characterEncoding" value="utf8"/>
         	<property name="hibernate.connection.useUnicode" value="true"/>
