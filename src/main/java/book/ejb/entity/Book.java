@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -37,6 +38,8 @@ public class Book implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="id_author", nullable=false)
 	private Author author;
+	
+	
 
 	public Book() {
 		author= new Author();
@@ -116,7 +119,8 @@ public class Book implements Serializable {
 			return false;
 		return true;
 	}
-	
+
+
 	
 
 }
