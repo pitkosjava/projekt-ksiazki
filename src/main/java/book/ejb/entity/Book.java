@@ -10,36 +10,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity(name="book")
-@Table(name = "book")
+@Entity(name = DBMS_NAMES.BOOK_ENTITY)
+@Table(name = DBMS_NAMES.BOOK_ENTITY)
 public class Book implements Serializable {
 	private static final long serialVersionUID = -2956014727634217475L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = DBMS_NAMES.BOOK_ID)
 	private Long id_book;
 
 	@NotNull
-	@Column(name = "title")
+	@Column(name = DBMS_NAMES.BOOK_TITLE)
 	@Size(min = 3, max = 40,message="Size Title must be between 3 and 40")
 	private String title;
 
 	@NotNull
-	@Column(name = "isbn")
+	@Column(name = DBMS_NAMES.BOOK_ISBN)
 	@Size(min = 10, max = 40,message="Size Isbn must be between 10 and 40")
 	private String isbn;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="id_author", nullable=false)
+	@JoinColumn(name = DBMS_NAMES.AUTHOR_ID, nullable=false)
 	private Author author;
-	
-	
 
 	public Book() {
 		author= new Author();

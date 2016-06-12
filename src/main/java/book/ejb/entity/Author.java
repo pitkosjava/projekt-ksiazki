@@ -21,8 +21,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
-@Entity(name="author")
-@Table(name="author")
+@Entity(name = DBMS_NAMES.AUTHOR_ENTITY)
+@Table(name = DBMS_NAMES.AUTHOR_ENTITY)
 @NamedQueries(value = {
 		@NamedQuery(name="Author.findauthor", query="SELECT a FROM author a where lower(a.forename)=:forename and lower(a.surname)=:surname")
 })
@@ -32,20 +32,21 @@ public class Author implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = DBMS_NAMES.AUTHOR_ID)
 	private Long id_author;
 	
 	@NotNull
-	@Column(name = "forename")
+	@Column(name = DBMS_NAMES.AUTHOR_FORENAME)
 	@Size(min=1,max=40,message="Size forename must be between 1 and 40")
 	private String forename;
 	
 	@NotNull
-	@Column(name = "surname")
+	@Column(name =DBMS_NAMES.AUTHOR_SURNAME)
 	@Size(min=2,max=40,message="Size surname must be between 2 and 40")
 	private String surname;
 	
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="author")
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy = DBMS_NAMES.AUTHOR_ENTITY)
 	private List<Book> books;
 	
 	

@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import book.ejb.dao.BookDao;
 import book.ejb.entity.Book;
+import book.ejb.entity.SearchQuery;
 
 @Named
 @RequestScoped
@@ -38,5 +39,10 @@ public class BookServices{
 	public List<Book> findAll() {
 		return bookDao.findAll();
 	}
+	
+	public List<Book> findAll(SearchQuery searchBook) {
+		return bookDao.findAll(searchBook);
+	}
+	
 
 }
